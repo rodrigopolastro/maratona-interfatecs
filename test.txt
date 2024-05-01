@@ -1,7 +1,0 @@
-A B C D E F G (0)
-A B C D E G F (1)
-A B C D G E F (2) 
-A B C G D E F (3) 
-A B G C D E F (4) 
-A G B C D E F (5) 
-G A B C D E F (6) 
