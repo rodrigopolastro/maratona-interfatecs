@@ -9,7 +9,8 @@ def main():
 
   # # a ideia é ir alterando a string ordenada até ela se tornar
   # # a final e depois contar quantas alterações foram feitas
-
+  
+  # É A IDEIA DO BUBBLE SORT!!!
   for letra in str_final:
     pos_atual  = str_atual.index(letra)
     pos_final  = str_final.index(letra)
