@@ -19,7 +19,8 @@ def main(test_input):
   # print(math.ceil(margem))
   # print(round(margem))
   
-  # answer = math.ceil(margem) => Fails tests 10 and 12
+  # 'ceil' method Fails tests 10 and 12
+  # answer = math.ceil(margem) 
   answer = round(margem)
   return answer
 
