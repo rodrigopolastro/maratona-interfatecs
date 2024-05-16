@@ -18,7 +18,7 @@ def main(): #problema I
 		else:
 			print("VERDADEIRO")
 	else:
-		if len(listaimpar) % 2 == 1:
+		if len(listaimpar)  == 1:
 			print("VERDADEIRO")
 		else:
 			print("FALSO")
