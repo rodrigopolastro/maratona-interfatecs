@@ -1,12 +1,10 @@
 def main():
   respostas = []
   temTroca = 0
-
   linha = input().split(" ")
   nEmpr   = int(linha[0])
   qPadrao = int(linha[1])
   nDias   = int(input())
-
   # matriz vazia
   matriz = list()
   for i in range(0, nEmpr):
@@ -14,7 +12,6 @@ def main():
     for j in range(0, nEmpr):
       linha.append(0)
     matriz.append(linha)
-
   # leitura dos dados
   qtdLeituras = (nEmpr * nEmpr - nEmpr) + 1 
   for i in range(0, nDias):
@@ -25,7 +22,6 @@ def main():
         emp2 = int(linha[1])
         botijoes = int(linha[2])
         matriz[emp1-1][emp2-1] += botijoes
-    
     respostas.append(f"Final dia {i+1}")
     for emp1 in range(0, nEmpr):
       for emp2 in range(0, nEmpr):
@@ -36,12 +32,9 @@ def main():
           matriz[emp1][emp2] %= qPadrao
           matriz[emp2][emp1] %= qPadrao
           respostas.append(f"  Trocas entre {emp1+1}({v1}v) e {emp2+1}({v2}v)")
-       
     if temTroca == 0:
       respostas.append("  Sem trocas")
     temTroca = 0   
-
   for i in respostas:
     print(i)  
-
 main()
