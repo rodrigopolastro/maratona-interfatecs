@@ -5,7 +5,7 @@ from io import StringIO
 from importlib import import_module
 from shutil import rmtree
 import threading
-sinal = 0
+sinal = 0 # useless variable
 """
 import programa #--> verificar sobre import ainda
 """
@@ -27,15 +27,15 @@ for arquivo in arquivos:
         arquivos = arquivo.split('.')[0]
 
 importar = f'programa.{arquivos}'
-exercicios = listdir('exercicios')
+exercicios = listdir('exercise')
 for pasta in exercicios:
     try:
         if pasta.split('_')[1] == arquivos:
-            diretorio = f'exercicios\\{pasta}'
+            diretorio = f'exercise\\{pasta}'
             break
     except IndexError:
         if str(pasta) == arquivos:
-            diretorio = f'exercicios\\{str(pasta)}'
+            diretorio = f'exercise\\{str(pasta)}'
             break
 ##att proximo vez ---> usar como iterador, len(os.listdir()) e puxar onde o index - vai ser inLogistica1.txt etc...
 
