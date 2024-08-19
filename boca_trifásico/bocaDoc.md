@@ -10,3 +10,8 @@ A - exercises folder documentation
 4 - Inside of this two folders, the files should have the same name in both folders with a '.txt' extension, additionally, the filenames should include a numeric character.
 something like this -> 'exercise_name1.txt'
 PS: The files do not necessarily need to have the prefix 'in' in the filename, the files should simply be located in the 'in' folder for inputs and the 'out' folder for outputs.
+
+
+CORRECT FILE FORMAT (file to be compared)
+
+1 - The file can't include security conditional (guard clause) "if __name__ == '__main__'" , and it MUST execute upon being imported.
