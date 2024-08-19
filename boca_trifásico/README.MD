@@ -1,4 +1,4 @@
-##Simple Documentation About Our First Attempt at a File Comparator Programming    
+SIMPLE DOCUMENTATION ABOUT OUR FIRST ATTEMPT AT A FILE COMPARATOR PROGRAMMING    
 
 CORRECT FILE FORMAT   
 
