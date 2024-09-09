@@ -1,7 +1,7 @@
 # incompleta / falha (decodificação ok)(codificacao falha)
 import string
-lista_codificar = [i for i in string.ascii_lowercase]
-lista_codificar = [i for i in string.ascii_uppercase]
+lista_codificar = [i for i in string.ascii_letters]
+
 
 dicionario = {}
 contador =0
@@ -48,6 +48,6 @@ def codificar(numero:int):
 
         
         
-codificar(125)
+print(decodificar('cb'))
    
     
