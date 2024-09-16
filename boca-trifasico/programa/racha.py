@@ -96,10 +96,10 @@ def gerar_diagonais():
     diagonal_secundaria = []
     for i in range(numero):
         diagonal_principal.append(matriz[i][i])
-        diagonal_secundaria.append(matriz[numero-i-1][numero-i-1])
+        diagonal_secundaria.append(matriz[i][numero-i-1])
     diagonal_principal = ''.join(diagonal_principal)
     diagonal_secundaria = ''.join(diagonal_secundaria)
-
+    
     diagonais= []
     linha = 0
     coluna = 1

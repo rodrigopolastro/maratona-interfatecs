@@ -39,6 +39,7 @@ def gerarcolunas():
         retornar.append(palavra)
     return retornar
 col = gerarcolunas()
+
 contador = 0
 # lista = [ 'FACA','FATEC','CAFE','FAMILIA']
 palavras = int(input())
@@ -52,14 +53,20 @@ for i in range(palavras):
 #         if matriz[index_x][index_x:index_y] in lista or matriz[index_x][index_y-1:index_x:-1] in lista or matriz[index_x][index_y::-1] in lista:
 #             contador+=1
 for i in range(len(matriz)):
-    for palavra in lista:
+    for index,palavra in enumerate(lista):
         if palavra in matriz[i] or palavra in matriz[i][::-1]: 
+            lista[index] = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             contador+=1
+           
     ###
-for i in lista: # coluna
+
+for i in range(len(lista)): # coluna
+
     for j in col:
         
-        if i in j or i in ''.join(reversed(j)):
+        if lista[i] in j or lista[i] in ''.join(reversed(j)):
+            lista[i]='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+            
             contador+=1
 
 
@@ -86,9 +93,12 @@ def gerar_diagonais():
     """
     numero = len(matriz)
     diagonal_principal = []
+    diagonal_secundaria = []
     for i in range(numero):
         diagonal_principal.append(matriz[i][i])
+        diagonal_secundaria.append(matriz[numero-i-1][numero-i-1])
     diagonal_principal = ''.join(diagonal_principal)
+    diagonal_secundaria = ''.join(diagonal_secundaria)
 
     diagonais= []
     linha = 0
@@ -97,9 +107,7 @@ def gerar_diagonais():
     for i in range(1,numero):
         linha = 0
         coluna = i
-        # if coluna >= 7:
-        #     break
-        
+
         diagonal = []
         diagonalembaixo = []
         for j in range(numero-i):
@@ -112,6 +120,36 @@ def gerar_diagonais():
         diagonais.append(''.join(diagonal))  
         diagonais.append(''.join(diagonalembaixo))
     diagonais.append(diagonal_principal)
+    diagonais.append(diagonal_secundaria)
+    # matriz = [
+    # 'AACABAR',
+    # 'AIRABQT',
+    # 'TOLABMQ',
+    # 'EECIGAA',
+    # 'CFYYMNA',
+    # 'TAUHHAB',
+    # 'WCHNQMF', 
+    # ]
+    
+    for i in range(numero-2,-1,-1):
+        linha = 0
+        coluna = i
+
+        diagonal = []
+        diagonalembaixo = []
+        for j in range(i+1):
+            
+            diagonal.append(matriz[linha][coluna])
+            diagonalembaixo.append(matriz[coluna][linha])
+            linha+=1
+            coluna-=1
+            
+        diagonais.append(''.join(diagonal))  
+        diagonais.append(''.join(diagonalembaixo))
+    
+
+
+    
     return diagonais
         
     
@@ -119,8 +157,9 @@ def gerar_diagonais():
 diagonais = gerar_diagonais()
 
 for i in diagonais:
-    for j in lista:
+    for index,j in enumerate(lista):
         if j in i or j in i[::-1]:
+            lista[index] = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
             contador+=1
 
 print(contador)
