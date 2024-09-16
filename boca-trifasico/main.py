@@ -162,8 +162,8 @@ def main():
 
 
 
-        print('entrance: ',nentrada)
-        print('exit:     ', saida)
+        print('Saiu do meu código: ',nentrada)
+        print('Era esperado sair:     ', saida)
         if nentrada != saida:
             print('WRONG ANSWER')
 
