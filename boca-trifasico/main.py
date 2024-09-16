@@ -160,10 +160,8 @@ def main():
         # print(entrada)
         nentrada = filtrar(entrada[0])
 
-
-
-        print('Saiu do meu código: ',nentrada)
-        print('Era esperado sair:     ', saida)
+        # print('entrance: ',nentrada)
+        # print('exit:     ', saida)
         if nentrada != saida:
             print('WRONG ANSWER')
 
@@ -178,7 +176,7 @@ def main():
         sys.modules.pop(importar,None)
     print("CORRECT ANSWER")
     marcador = len(listdir(f'{diretorio}\\in'))
-    print(f"Você acertou {CONTADOR} de {marcador}")
+    # print(f"Você acertou {CONTADOR} de {marcador}")
 
 
     try:
