@@ -1,4 +1,5 @@
 # incompleta / falha (decodificação ok)(codificacao falha)
+#feita em outro dia 
 import string
 lista_codificar = string.ascii_lowercase+string.ascii_uppercase+string.digits
 
