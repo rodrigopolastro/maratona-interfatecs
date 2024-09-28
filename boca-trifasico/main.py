@@ -164,6 +164,7 @@ def main():
         # print('exit:     ', saida)
         if nentrada != saida:
             print('WRONG ANSWER')
+            quit()
 
             try:
                 rmtree('programa\\__pycache__')   
