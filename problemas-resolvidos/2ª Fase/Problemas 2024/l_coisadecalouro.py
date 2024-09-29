@@ -78,7 +78,7 @@ for i in novo_dicionario.keys():
 
 if calouro[0] > novo_dicionario[calouro[1]] or dia_prova[0] > novo_dicionario[dia_prova[1]]:
     print('data nao existe!')
-elif calouro_dias >= prova:
+elif prova - calouro_dias <= 0:
     print('esta de brincadeira?')
 elif calouro_dias >= 1 and (prova - calouro_dias) < veterano:
     print('olha a reprovacao chegando!')
