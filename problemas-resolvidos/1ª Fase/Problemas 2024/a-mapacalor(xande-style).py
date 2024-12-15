@@ -22,7 +22,7 @@ def main():
   n = int(input())
   regiao_mais_olhada = None
   qtd_olhadas =  0
-  for usuario in range(n):
+  for _ in range(n):
     for i in range(LINHAS_POR_USUARIO):
       leitura = input().split(' ')
       for j in range(COLUNAS_POR_USUARIO):
