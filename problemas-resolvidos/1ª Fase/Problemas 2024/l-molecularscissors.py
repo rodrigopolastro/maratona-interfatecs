@@ -5,7 +5,7 @@ while palavraOriginal != "EOF":
     cod_reverso = palavraOriginal.replace('A','1').replace('G','2').replace('C','3').replace('T','4').replace('4','A').replace('2','C').replace('3','G').replace('1','T')
 
     ponteiro1 = 0
-    ponteiro2 = ponteiro1 + 3
+    ponteiro2 = ponteiro1 + 1
     maiorPalavra = 0
     resultado = tuple() # meio desnecessário
 
