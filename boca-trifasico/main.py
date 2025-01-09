@@ -110,7 +110,6 @@ def rodar1():
     import_module(importar)
 def teste(orig,atual):
     sys.stdout = orig
-    print('sopa haha') 
     sys.stdout = atual
 # def errors_time():
 #     global sinal
