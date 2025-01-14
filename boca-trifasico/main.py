@@ -30,11 +30,12 @@ for arquivo in arquivos:
 
 importar = f'programa.{arquivos}'
 exercicios = listdir('exercise')
+
 for pasta in exercicios:
     try:
         
         
-        if pasta.split('_')[1] == "".join(arquivos.replace(".py","").split("-")[1]):
+        if pasta.split('_')[1] == "".join(arquivos.replace(".py","")):
             
             diretorio = f'exercise\\{pasta}'
             break
@@ -126,11 +127,12 @@ CONTADOR = 0
 def main():
     
     marcador = len(listdir(f'{diretorio}\\in')) # quantidade de casos de teste 
+    originalsysin = sys.stdin
+    originalsysout = sys.stdout
     
     for index in range(len(inputs)):
-    
-        originalsysin = sys.stdin
-        originalsysout = sys.stdout
+        global CONTADOR
+      
         capturaoutput = StringIO('')
         # limpar = io.StringIO('')
         entrada = []
@@ -154,8 +156,12 @@ def main():
 
                     # global sinal
                     # sinal = 1   
+                    try:
+                        import_module(importar)
+                    except EOFError:
+                        pass
+                        
                     
-                    import_module(importar)
                     
                     # sys.stdout = originalsysout
                     # print(capturaoutput.getvalue())
@@ -163,7 +169,9 @@ def main():
                     entrada.append(capturaoutput.getvalue()) # in
                     # '1\n 2\n 3\n'
         except EOFError:
-            sys.modules.pop(importar,None)
+            sys.stdout = originalsysout
+            print('EOF error? atual stringIO',capturaoutput.getvalue()) 
+            
             
             entrada.append(capturaoutput.getvalue())
             # nentrada = filtrar(entrada[0])
@@ -186,6 +194,7 @@ def main():
             return
         
         finally:           
+           
             capturaoutput.close()
             sys.stdout = originalsysout
             sys.stdin = originalsysin
@@ -194,28 +203,30 @@ def main():
         
             # print(entrada)
             # print(saida)
-            nentrada = filtrar(entrada[0])
-
+        
+        nentrada = filtrar(entrada[0])
         # print('entrance: ',nentrada)
         # print('exit:     ', saida)
-            global CONTADOR
-            if nentrada != saida:
-                # print('WRONG ANSWER')
-                # global CONTADOR
-                
-                # quit()
-                
-                try:
-                    rmtree('programa\\__pycache__')   
-                except:
-                    pass  
-            else:
-                CONTADOR +=1
-                
-                # print("teoricamente verificou")
-                # global CONTADOR
+
+        if nentrada != saida:
+            # print('WRONG ANSWER')
+            # global CONTADOR
+            # print("no if entrou")
+            # quit()
             
-            sys.modules.pop(importar,None)
+            try:
+                rmtree('programa\\__pycache__')   
+            except:
+                pass  
+        else:
+            # print('no else saiu')
+            CONTADOR +=1
+            
+            # print("teoricamente verificou")
+            # global CONTADOR
+        
+        sys.modules.pop(importar,None)
+
     if CONTADOR == marcador:
         print("CORRECT ANSWER")
     # marcador = len(listdir(f'{diretorio}\\in'))  <-- declarado lá em cima no comeco do bloco de código
