@@ -5,7 +5,6 @@ from io import StringIO
 from importlib import import_module
 from shutil import rmtree
 import threading
-from os import path
 sinal = 0 # useless variable
 """
 import programa #--> verificar sobre import ainda
@@ -22,24 +21,19 @@ def verificar(arquivo:str,split:str='.'):
         pass
     return None
 
-arquivos = listdir('programa')[0]
-
+arquivos = listdir('programa')
 for arquivo in arquivos:
     if verificar(arquivo) != None:
         arquivos = arquivo.split('.')[0]
 
 importar = f'programa.{arquivos}'
 exercicios = listdir('exercise')
-
 for pasta in exercicios:
     try:
-        
-        
-        if pasta.split('_')[1] == "".join(arquivos.replace(".py","")):
-            
+        if pasta.split('_')[1] == arquivos:
             diretorio = f'exercise\\{pasta}'
             break
-    except:
+    except IndexError:
         if str(pasta) == arquivos:
             diretorio = f'exercise\\{str(pasta)}'
             break
@@ -47,8 +41,8 @@ for pasta in exercicios:
 
 
 
-inputs = [i for i in listdir(path.join(diretorio, "in"))]
-outputs =  [i for i in listdir(path.join(diretorio, "out"))]
+inputs = [i for i in listdir(diretorio+"\\in")]
+outputs =  [i for i in listdir(diretorio+"\\out")]
 
 def tudoigual(lista):
     padrao = len(lista[0])
@@ -100,10 +94,10 @@ def remover(lista:list,index,argumento='-'):
 inputs = organizar(inputs)
 outputs = organizar(outputs)
 
-# def retirar(linha:str):
-#     # linha = list(linha)
-#     # linha.remove('\n')
-#     return linha.strip()
+def retirar(linha:str):
+    # linha = list(linha)
+    # linha.remove('\n')
+    return linha.strip()
 
 def filtrar(linha:str, argumento = '\n'):
     lista = linha.split(argumento)
@@ -116,6 +110,7 @@ def rodar1():
     import_module(importar)
 def teste(orig,atual):
     sys.stdout = orig
+    print('sopa haha') 
     sys.stdout = atual
 # def errors_time():
 #     global sinal
@@ -125,26 +120,22 @@ def teste(orig,atual):
 CONTADOR = 0
 
 def main():
-    
-    marcador = len(listdir(f'{diretorio}\\in')) # quantidade de casos de teste 
-    originalsysin = sys.stdin
-    originalsysout = sys.stdout
-    
     for index in range(len(inputs)):
-        global CONTADOR
-      
+    
+        originalsysin = sys.stdin
+        originalsysout = sys.stdout
         capturaoutput = StringIO('')
         # limpar = io.StringIO('')
         entrada = []
         saida = []
 
-        sys.stdin = originalsysin
+        sys.stdin= originalsysin
         sys.stdout = originalsysout
         try:
             with open(f'{diretorio}\\in\\{inputs[index]}','r',encoding='UTF-8') as inp: # in     
                 with open(f'{diretorio}\\out\\{outputs[index]}','r',encoding='UTF-8') as out:  #out
                     for linha in out.readlines(): # out
-                        saida.append(linha.strip()) # out
+                        saida.append(retirar(linha)) # out
                     sys.stdin = inp # in
                     sys.stdout = capturaoutput
                     # n1 = threading.Timer(5,errors_time)#teste(originalsysout,sys.stdout)
@@ -156,84 +147,42 @@ def main():
 
                     # global sinal
                     # sinal = 1   
-                    try:
-                        import_module(importar)
-                    except EOFError:
-                        pass
-                        
-                    
-                    
-                    # sys.stdout = originalsysout
-                    # print(capturaoutput.getvalue())
+                    import_module(importar)
                      # in
                     entrada.append(capturaoutput.getvalue()) # in
-                    # '1\n 2\n 3\n'
+                    '1\n 2\n 3\n'
         except EOFError:
-            sys.stdout = originalsysout
-            print('EOF error? atual stringIO',capturaoutput.getvalue()) 
-            
-            
-            entrada.append(capturaoutput.getvalue())
-            # nentrada = filtrar(entrada[0])
-            # if nentrada != saida:
-            #     print('WRONG ANSWER')
-            #     quit()
-            
-            # try:
-            #     rmtree('programa\\__pycache__')   
-            # except:
-            #     pass  
-            continue
-        
-            
-        
-        
-        except Exception:
-            
-            print("WRONG ANSWER -> SOMETHING WENT SO WRONG LOL")
-            return
-        
+            pass
         finally:           
-           
             capturaoutput.close()
             sys.stdout = originalsysout
             sys.stdin = originalsysin
-        # sys.stdout = originalsysout
-        # sys.stdin = originalsysin
-        
-            # print(entrada)
-            # print(saida)
-        
+        # print(entrada)
         nentrada = filtrar(entrada[0])
-        # print('entrance: ',nentrada)
-        # print('exit:     ', saida)
+
+
 
         if nentrada != saida:
-            # print('WRONG ANSWER')
-            # global CONTADOR
-            # print("no if entrou")
-            # quit()
-            
+            print('WRONG ANSWER')
+            quit() 
+            # for i, _ in enumerate(nentrada):
+            #     if(nentrada[i] != saida[i]):
+            #         print('esperado/saida: ', nentrada[i], ' / ', saida[i])         
+            # print('entrance',nentrada,'\nexit',saida)
+
             try:
                 rmtree('programa\\__pycache__')   
             except:
                 pass  
-        else:
-            # print('no else saiu')
-            CONTADOR +=1
             
-            # print("teoricamente verificou")
-            # global CONTADOR
-        
+        else:
+            global CONTADOR
+            CONTADOR +=1
         sys.modules.pop(importar,None)
+    print("CORRECT ANSWER")
+    # marcador = len(listdir(f'{diretorio}\\in'))
+    # print(f"Você acertou {CONTADOR} de {marcador}")
 
-    if CONTADOR == marcador:
-        print("CORRECT ANSWER")
-    # marcador = len(listdir(f'{diretorio}\\in'))  <-- declarado lá em cima no comeco do bloco de código
-        
-    else:
-        print("WRONG ANSWER")
-        print(f"Você acertou {CONTADOR} de {marcador}")
 
     try:
         rmtree('programa\\__pycache__') 
