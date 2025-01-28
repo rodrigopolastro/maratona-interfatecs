@@ -1,3 +1,13 @@
+################################################################################
+# Objetivo: formar uma piramide de letras conforme o input onde se tem dois parametros -> o numero  E  maiusculas ou minusculas 
+# ex: 3 maiusculas
+#.........................A
+#........................AB
+#.......................ABC
+# Autor: Alexandre
+# Data: ??/??/2024
+# Duração: ??
+################################################################################
 def main():
   alfabeto = "abcdefghijklmnopqrstuvwxyz"
 

@@ -1,3 +1,12 @@
+################################################################################
+# Objetivo: Determinar quantos livros foram pegos de uma prateleira organizada
+#           alfabeticamente a partir da posição final dos livros 
+#           (e mais algumas regrinhas)
+# Autor: Rodrigo
+# Data: 01/05/2024
+# Duração: ?
+################################################################################
+
 def main():
   tamanho_lista = input()
   str_final = list(input())
@@ -7,8 +16,8 @@ def main():
   for letra in str_atual:
     mudancas[letra] = 0
 
-  # # a ideia é ir alterando a string ordenada até ela se tornar
-  # # a final e depois contar quantas alterações foram feitas
+  # a ideia é ir alterando a string ordenada até ela se tornar
+  # a final e depois contar quantas alterações foram feitas
   
   # É A IDEIA DO BUBBLE SORT!!!
   for letra in str_final:

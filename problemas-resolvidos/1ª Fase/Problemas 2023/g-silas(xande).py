@@ -1,10 +1,17 @@
+################################################################################
+# Objetivo: Algoritmo pathfinder. Encontrar a distância do menor caminho até um 
+#           objetivo desviando de obstáculos no cenário 
+# Autor: Alexandre
+# Data: 27/01/2025
+# Duração: ?
+################################################################################
 from time import sleep
 
 caminhos = dict()
 ja_visitados = []
 forca = int(input())
 matriz = []
-linhas,colunas = list(map(int,input().split(' ')))
+linhas,colunas = list(map(int,input().split()))
 
 for inputLinhas in range(linhas):
     matriz.append(input().split(' '))
@@ -23,7 +30,6 @@ for linha in range(len(matriz)):
 proximos_na_fila = []
 proximos_na_fila.append(posicaoInicial)
 caminhos[posicaoInicial] = None
-Objetivo = tuple()
 for linha in range(len(matriz)):
     for coluna in range(len(matriz[0])):
         if matriz[linha][coluna] == 'K':

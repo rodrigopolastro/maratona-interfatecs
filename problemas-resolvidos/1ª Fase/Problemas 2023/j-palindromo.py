@@ -1,7 +1,15 @@
+################################################################################
+# Objetivo: recebe um texto e retorna se esse texto é um palindromo ou não
+# OBS: ao fato de termos os casos de teste, esse problema é bem estranho em
+# consideração há algumas pontuações, basicamente você tem que interpretar 
+# peso de caracteres especiais (! , . #) no meio do código tem peso, 
+# enquanto no final não (?)
+# Autor: Alexandre
+# Data: 27/01/2025
+# Duração: ?
+################################################################################
 
 # from unicodedata import normalize,category,combining
-
-
 # print([c for c in normalize('NFD', stringNormal) if not combining(c)])
 
 stringNormal = None

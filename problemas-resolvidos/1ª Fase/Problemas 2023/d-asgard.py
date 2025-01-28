@@ -1,3 +1,14 @@
+################################################################################
+# Objetivo: determinar trocas de botijão de gás em quantidade Y, entre X empresas 
+#           ao longo de Z dias e outra considerando que:
+#           -> 1° o número minimo para trocas muda conforme o input do usuario na primeira linha
+#           -> 2° viagens só podem acontecer quando forem bilaterais, ou seja, não pode haver troca apenas de uma empresa para outra
+#             , precisa que a outra empresa faça pelo menos 1 troca também
+# Autor: Alexandre
+# Data: ??/04/2024
+# Duração: ??
+################################################################################
+
 def main():
   respostas = []
   temTroca = 0

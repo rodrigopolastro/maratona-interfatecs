@@ -1,3 +1,12 @@
+################################################################################
+# Objetivo: Determinar se é possível viajar entre quaisquer dois pontos em uma 
+#           cidade a partir das conexões entre os pontos da mesma. Tecnicamente, 
+#           trata-se de verificar se um grafo direcionado é conexo.
+# Autor: Rodrigo
+# Data: 17/01/2025
+# Duração: 1h12
+################################################################################
+
 pontosVisitados = []
 pontosCidade = None
 ruasCidade = None

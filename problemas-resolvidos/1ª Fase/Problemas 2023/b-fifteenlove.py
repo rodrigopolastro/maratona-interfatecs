@@ -1,4 +1,10 @@
-# OBJETIVO: Determinar placar do jogo de acordo com sequencia de pontuação
+################################################################################
+# Objetivo: Determinar placar do jogo de tênis de acordo com sequencia de pontuação
+# Autor: Rodrigo e Alexandre
+# Data: 14/01/2025
+# Duração: 3h+
+################################################################################
+
 # REGRAS
 # - ganha a partida quem fizer 3 sets
 # - ganha um set quem fizer 6 games

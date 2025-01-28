@@ -1,3 +1,11 @@
+################################################################################
+# Objetivo: Determinar a posição final de um robô se movimentando em uma matriz 
+#           a partir da sua sequência de movimentos
+# Autor: Rodrigo
+# Data: ??/??/2024
+# Duração: ?
+################################################################################
+
 def main():
   batidas = 0
 

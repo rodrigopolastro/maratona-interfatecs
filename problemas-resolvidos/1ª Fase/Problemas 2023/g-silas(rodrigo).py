@@ -1,3 +1,11 @@
+################################################################################
+# Objetivo: Algoritmo pathfinder. Encontrar a distância do menor caminho até um 
+#           objetivo desviando de obstáculos no cenário 
+# Autor: Rodrigo
+# Data: 27/01/2025
+# Duração: ?
+################################################################################
+
 posicaoSilas = []
 cenario = []
 proximasPosicoes = []
@@ -41,7 +49,7 @@ for indexLinha in range(linhasCenario):
     if 'S' in linha:
         POSICAO_SILAS = (indexLinha, linha.index('S'))
         posicoesAnteriores[POSICAO_SILAS] = None
-        proximasPosicoes.append(POSICAO_SILAS)
+        proximasPosicoes.append(POSICAO_SILAS) 
         
     if 'K' in linha:
         POSICAO_CHAVE = (indexLinha, linha.index('K'))
