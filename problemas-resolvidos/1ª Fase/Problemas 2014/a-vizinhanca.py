@@ -1,4 +1,4 @@
-#INICIO 8:50 / TÉRMINO  10:09 -> problemas com arquivo 'corrompido' no boca fez isso levar mais tempo doque o previsto
+#INICIO 8:50 / TÉRMINO  10:22 -> PROBLEMA TÉCNICO GRAVE ENTRE O COMPUTADOR E A CADEIRA AAAAAAAHHHHHHHH
 """
 ° Alfredo não quer ser vizinho de Beto, e também não quer ser vizinho de Darci;
 ° Beto não deve ser vizinho de Alfredo e não suportaria a vizinhança de Cláudio;
@@ -43,16 +43,18 @@ while True:
                 comparar = pegarVizinhos((linha,coluna),matriz)
                 if printarV: # <-- gambiarra para rodar no nosso programa test
                     for restritos in comparar:
-                        if restritos in restricoes[matriz[linha][coluna]]:
-                            respostas.append("F")
-                            # print("F")
-                            printarV = False
+                        if printarV: # <-- necessário para o funcionamento correto '-'
+                            if restritos in restricoes[matriz[linha][coluna]]:
+                                printarV = False
+                                # respostas.append("F")
+                                print("F")
+                            
                     
     if printarV:
-        # print('V')
-        respostas.append("V")
-for r in respostas:
-    print(r)
+        print('V')
+        # respostas.append("V")
+# for r in respostas:
+#     print(r)
     
 
                     
