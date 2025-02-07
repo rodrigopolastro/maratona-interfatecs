@@ -1,3 +1,7 @@
+# Determinar se a configuração de lotes é valido para que haja harmonia entre as pessoas que comprarão lote, sendo que:
+# algumas pessoas não se dão bem com outras, não querem ser vizinhos delas, então o objetivo gira em torno de:
+# receber uma matriz, dado essa 'rixa' entre pessoas previamente (no proprio enunciado) determinar se aquela matriz faz jus às restrições
+# de vizinhanca, ou seja, pessoa x que detesta y não quer (e  nao pode ser válido no modelo) vizinho desta pessoa
 #INICIO 8:50 / TÉRMINO  10:22 -> PROBLEMA TÉCNICO GRAVE ENTRE O COMPUTADOR E A CADEIRA AAAAAAAHHHHHHHH
 """
 ° Alfredo não quer ser vizinho de Beto, e também não quer ser vizinho de Darci;
