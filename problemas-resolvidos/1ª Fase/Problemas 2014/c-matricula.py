@@ -1,4 +1,3 @@
-# versão tentando ordenar manualmente - falha
 def determinarPontuacao(lista):
     # formato:
     # Gabriel Torres;N;650;N;N;N
@@ -59,7 +58,7 @@ valorLetra = {
 } 
 import decimal
 
-decimal.getcontext().prec(60)
+
 
 def determinarNumero(nome:str, limite = 60):
     nome = nome.lower()
@@ -72,13 +71,14 @@ def determinarNumero(nome:str, limite = 60):
     while len(retornar) < limite:
         retornar+='0'
     retorno = '0.'+retornar
-    return decimal(retorno)
+    return decimal.Decimal(retorno)
     
     
 try:
     while True:
         dadoEntrada = input().split(';')
         nome = dadoEntrada[0].lower().replace('á','a').replace('â','a').replace('ã','a').replace('õ','o').lower()
+        dadoEntrada.append(determinarNumero(dadoEntrada[0]))
         dados.append(dadoEntrada)
         
         
