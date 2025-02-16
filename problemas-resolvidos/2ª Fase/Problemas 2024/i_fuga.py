@@ -27,7 +27,7 @@ def varredura(posicao: tuple):
     ]
         # if 0 <= posicao[0]+x < 100 and 0 <= posicao[1]+y < 100 and matrizInicial[posicao[0]+x][posicao[1]+y] != "#" and abs(x) != abs(y) and (posicao[0]+x, posicao[1]+y) not in proximosNaLista and (posicao[0]+x, posicao[1]+y) not in jaVisitados:
     for p in listaVerificar:
-        if 0 <= p[0] < 100 and 0 <= p[1] < 100 and matrizInicial[p[0]][p[1]] != "#" and (p[0], p[1]) not in proximosNaLista and (p[0], p[1]) not in caminho.keys():
+        if 0 <= p[0] < 100 and 0 <= p[1] < 100 and matrizInicial[p[0]][p[1]] != "#" and (p[0], p[1]) not in proximosNaLista and (p[0], p[1]) not in caminho:
             
                 
             caminho[(p[0], p[1])] = posicao 

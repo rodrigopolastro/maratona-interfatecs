@@ -167,7 +167,7 @@ def main():
             quit() 
             # for i, _ in enumerate(nentrada):
             #     if(nentrada[i] != saida[i]):
-            #         print('esperado/saida: ', nentrada[i], ' / ', saida[i])         
+            #         print('saida/esperado: ', nentrada[i], ' / ', saida[i])         
             # print('entrance',nentrada,'\nexit',saida)
 
             try:
