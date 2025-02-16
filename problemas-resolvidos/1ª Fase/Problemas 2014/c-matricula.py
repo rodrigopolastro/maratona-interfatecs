@@ -1,3 +1,4 @@
+# versão tentando ordenar manualmente - falha
 def determinarPontuacao(lista):
     # formato:
     # Gabriel Torres;N;650;N;N;N
@@ -56,6 +57,10 @@ valorLetra = {
     '.':'0',
     ' ':'0'
 } 
+import decimal
+
+decimal.getcontext().prec(60)
+
 def determinarNumero(nome:str, limite = 60):
     nome = nome.lower()
     retornar = ''
@@ -67,14 +72,13 @@ def determinarNumero(nome:str, limite = 60):
     while len(retornar) < limite:
         retornar+='0'
     retorno = '0.'+retornar
-    return float(retorno)
+    return decimal(retorno)
     
     
 try:
     while True:
         dadoEntrada = input().split(';')
         nome = dadoEntrada[0].lower().replace('á','a').replace('â','a').replace('ã','a').replace('õ','o').lower()
-        dadoEntrada.append(determinarNumero(nome))
         dados.append(dadoEntrada)
         
         
@@ -100,6 +104,58 @@ except EOFError:
             ultimoAnalisado = int(classificacao[7])
     for r in respostas:
         print(r)
+
+
+# def determinarPontuacao(lista):
+#     # formato:
+#     # Gabriel Torres;N;650;N;N;N
+#     # ... / 10.000.000 - x * 10 + 3 + 2 + 1
+#     retornarPontuacaoGeral = 0
+#     if lista[1] == 'S':
+#         retornarPontuacaoGeral += 100_000_000_000
+#     retornarPontuacaoGeral -= int(lista[2]) * 100000
+#     if lista[3] == 'S':
+#         retornarPontuacaoGeral += 10000
+#     if lista[4] == 'S':
+#         retornarPontuacaoGeral +=1000
+#     if lista[5] == 'S':
+#         retornarPontuacaoGeral += 100
+#     return retornarPontuacaoGeral
+# dados = []
+
+# try:
+#     while True:
+#         dadoEntrada = input().split(';')
+#         nome = dadoEntrada[0].lower().replace('á','a').replace('â','a').replace('ã','a').replace('õ','o').lower()
+#         dados.append(dadoEntrada)
+        
+        
+        
+# except EOFError:
+#     respostas = []
+#     listaTemporaria = []
+#     for dado in dados:
+#         dado.append(determinarPontuacao(dado))
+#         listaTemporaria.append(dado)
+#     organizarResultado = sorted(listaTemporaria, key=lambda x: (-x[6], x[0]))
+    
+#     # organizarResultado.reverse()
+#     posicao = 0
+#     ultimoAnalisado = None
+#     for classificacao in organizarResultado:
+        
+#         if int(classificacao[6]) == ultimoAnalisado:
+#             respostas.append(f"{posicao} {classificacao[0]}")
+#         else:
+#             posicao+=1
+#             respostas.append(f"{posicao} {classificacao[0]}")
+#             ultimoAnalisado = int(classificacao[6])
+#     for r in respostas:
+#         print(r)
+            
+            
+
+    
             
             
 
