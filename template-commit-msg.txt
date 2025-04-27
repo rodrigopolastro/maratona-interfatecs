@@ -1,0 +1,9 @@
+{autor} resolve {nome_exercicio} ({fase_prova}f-{ano_prova}-{letra_exercicio})
+
+--------------------------------------------------------------------------------
+
+Exemplo:
+- Alexandre resolveu o exercício "A - frequencia" da primeira fase do Interfatecs de 2017
+
+Mensagem do Commit:
+- "xande resolve frequencia (1f-2017-A)"
