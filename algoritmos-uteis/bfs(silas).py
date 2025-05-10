@@ -24,12 +24,13 @@ def posicoesVizinhas(posicao):
             posicoesVizinhasValidas.append(posicao)
         
     return posicoesVizinhasValidas
+POSICAO_INICIAL = 2
     
 def imprimeTamanhoMenorCaminho():
     qtdMovimentos = 0
     caminhoPercorrido = []
     posicao = POSICAO_CHAVE
-    while posicao != POSICAO_SILAS:
+    while posicao != POSICAO_INICIAL:
         qtdMovimentos+=1
         caminhoPercorrido.append(posicao)
         posicao = posicoesAnteriores[posicao]
@@ -61,14 +62,8 @@ while len(proximasPosicoes) > 0:
         if proximaPosicao in posicoesAnteriores:
             continue
         
-        if cenario[proximaPosicao[0]][proximaPosicao[1]] == '#':
-            continue
-        
-        if cenario[proximaPosicao[0]][proximaPosicao[1]].isdigit(): #is a number
-            if int(cenario[proximaPosicao[0]][proximaPosicao[1]]) > forcaSilas:
-                continue
-        
         posicoesAnteriores[proximaPosicao] = posicaoAtual
         proximasPosicoes.append(proximaPosicao)
         
 print('N')
+
