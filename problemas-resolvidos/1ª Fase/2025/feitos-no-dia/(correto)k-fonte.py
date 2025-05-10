@@ -1,0 +1,10 @@
+t = int(input())
+a = int(input())
+b = int(input())
+c = int(input())
+v1 = (b*t*2) + (c* (t*2)*2)
+v2 = (a*t*2) + (c*t*2)
+v3 = (a* (t*2) *2) + (b*t*2)
+l = sorted([v1,v2,v3])
+
+print(l[0])
