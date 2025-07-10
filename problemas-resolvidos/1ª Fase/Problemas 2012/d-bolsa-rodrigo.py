@@ -4,7 +4,7 @@
 #           a fim de obter o o maior lucro possível.
 # 
 #           Tecnicamente falando, trata-se do conhecido "Maximum Subarray Problem"
-#           ou o problema de da "Sublista Contígua de Soma Máxima".
+#           ou o problema da "Sublista Contígua de Soma Máxima".
 # 
 #           A solução apresentada aqui é pouco performática, pois tem 
 #           complexidade quadrada. A melhor solução conhecida é o elegante 
@@ -20,7 +20,7 @@ while True:
     if qtdMeses == 0:
         break
     
-    maiorVariacao = -101
+    maiorVariacao = None
     mesInicial = mesFinal = None
     variacoes = []
     
@@ -30,7 +30,7 @@ while True:
     for i in range(qtdMeses):
         for j in range(i, qtdMeses):
             somaPeriodo = sum(variacoes[i:j+1])
-            if somaPeriodo >= maiorVariacao:
+            if maiorVariacao == None or somaPeriodo >= maiorVariacao:
                 maiorVariacao = somaPeriodo
                 mesInicial, mesFinal = i+1, j+1
                 

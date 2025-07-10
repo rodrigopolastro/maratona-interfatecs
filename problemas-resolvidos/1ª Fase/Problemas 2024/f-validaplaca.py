@@ -1,4 +1,5 @@
 import re
+
 placa = input()
 padraoAAA_9999 = re.compile(r'[A-Z]{3}[0-9]{4}')
 padraoAA_9999 = re.compile(r'[A-Z]{2}[0-9]{4}')
@@ -17,3 +18,5 @@ elif padraoMercosul.match(placa) and len(placa) == 7:
     print('Placa mercosul')
 else:
     print('Placa invalida') 
+
+

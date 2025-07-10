@@ -14,6 +14,7 @@ def dfs(modulo):
 
             
 
+
 modulosDependencias = defaultdict(set)
 qtdDependencias = int(input())
 for _ in range(qtdDependencias):
@@ -28,6 +29,7 @@ for _ in range(qtdDependencias):
     
 for modulo in modulosDependencias.keys():
     qtdVisitasModulos = defaultdict(int)
+    # visitados = set()
     dfs(modulo)  
         
 print('ok')
