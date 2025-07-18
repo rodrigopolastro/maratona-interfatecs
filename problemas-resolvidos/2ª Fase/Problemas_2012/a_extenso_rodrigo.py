@@ -1,8 +1,10 @@
-# rodrigo polastro
-# data: 10/07/2025
-# inicio 20:00 - 
-# duracao: 
-# from string import rjust
+################################################################################
+# Objetivo: Escrever uma lista de valores monetários em extenso
+# Autor: Rodrigo
+# Data: 10/07/2025
+# Duração: 2 horas 
+# (vergonha, eu sei... mas era o 1º exercício depois de muito tempo, dá um boi aí)
+################################################################################
 
 NOMES_UNIDADES = {
     '0': '',
