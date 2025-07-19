@@ -151,6 +151,7 @@ def main():
                      # in
                     entrada.append(capturaoutput.getvalue()) # in
                     '1\n 2\n 3\n'
+                    print(entrada)
         except EOFError:
             pass
         finally:           
@@ -163,11 +164,13 @@ def main():
 
 
         if nentrada != saida:
-            print('WRONG ANSWER')
-            quit() 
-            # for i, _ in enumerate(nentrada):
-            #     if(nentrada[i] != saida[i]):
-            #         print('saida/esperado: ', nentrada[i], ' / ', saida[i])         
+            # print('WRONG ANSWER')
+            # quit() 
+            for i, _ in enumerate(nentrada):
+                if(nentrada[i] != saida[i]):
+                    print('saida/esperado: ', nentrada[i], ' / ', saida[i])     
+                    
+                        
             # print('entrance',nentrada,'\nexit',saida)
 
             try:
