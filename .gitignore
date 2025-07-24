@@ -1,3 +1,4 @@
 boca-trifasico/programa/
 !boca-trifasico/.gitkeep
 *.exe
+.vs/
