@@ -57,6 +57,10 @@ def multiplier(tokens: List[Token]):
         if tokens[i][0] == TokenKey.TIMES:
             times = int(tokens[i][1])
             next_token = tokens[i + 1]
+
+            if next_token[0] in [TokenKey.TIMES, TokenKey.STATION]:
+                raise ValueError("Invalid sequence after TIMES token")
+
             for _ in range(times - 1):
                 tokens.insert(i + 1, next_token)
             tokens.pop(i)
