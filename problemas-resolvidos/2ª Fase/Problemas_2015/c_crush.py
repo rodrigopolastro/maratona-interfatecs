@@ -3,17 +3,18 @@
 #
 # Autor: Rodrigo
 # Data: 26/07/2025
-# Duração: 18:25
+# Duração: 999+h
 ################################################################################
+#VERSAO ORIGINAL:# 
 def encontraSequenciaEmLista(lista):
     pecaAnterior = lista[0]
     posicoesSequencia = [0]
     for j in range(1, len(lista)):
         pecaAtual = lista[j]
-        if pecaAtual == '.':
-            continue
+        # if pecaAtual == '.':
+        #     continue
         
-        if pecaAtual == pecaAnterior:
+        if pecaAtual != '.' and pecaAtual == pecaAnterior:
             posicoesSequencia.append(j)
         else:
             if len(posicoesSequencia) >= 3:
@@ -21,7 +22,62 @@ def encontraSequenciaEmLista(lista):
                 break
             pecaAnterior = pecaAtual
             posicoesSequencia = [j]
+    return posicoesSequencia  
+
+
+def encontraSequenciaEmLista2(lista):
+    pecaAnterior = None
+    posicoesSequencia = []
+
+    for j, pecaAtual in enumerate(lista):
+        if pecaAtual == '.':
+            if len(posicoesSequencia) >= 3:
+                break
+            pecaAnterior = None
+            posicoesSequencia = []
+        
+        if pecaAtual == pecaAnterior:
+            posicoesSequencia.append(j)
+        else:
+            if len(posicoesSequencia) >= 3:
+                break
+            pecaAnterior = pecaAtual
+            posicoesSequencia = [j]
+
     return posicoesSequencia       
+# from itertools import groupby
+# def encontraSequenciaEmLista(arr):
+#     # if not arr:
+#     #     return []
+
+#     # max_len = 0
+#     # max_indices = []
+
+#     # for _, g in groupby(enumerate(arr), key=lambda x: x[1]):
+#     #     grupo = list(g)
+#     #     idxs = [i for i, _ in grupo]
+#     #     if len(idxs) > max_len:
+#     #         max_len = len(idxs)
+#     #         max_indices = idxs
+
+#     # return max_indices
+#     # previous = arr[0]
+#     # for elem in arr[1:]:
+#     max_len = 0
+#     max_start_idx = 0
+#     current_idx = 0
+
+#     for _, group in groupby(arr):
+#         group_size = sum(1 for _ in group)
+
+#         if group_size > max_len:
+#             max_len = group_size
+#             max_start_idx = current_idx
+
+#         current_idx += group_size
+
+#     return list(range(max_start_idx, max_start_idx + max_len))
+        
 
 def calculaPontuacao(tamanhoSequencia):
     if tamanhoSequencia < 3:
@@ -78,7 +134,8 @@ def main():
             if tamanhoSequencia >= 3:
                 encontrouAlgumaSequencia = True
                 pontuacao = pontuacao + calculaPontuacao(tamanhoSequencia)
-                sequencias.append(('linha', linha))
+                seq = [linha[x] for x in posicoesSequencia]
+                sequencias.append(('linha ' , indexLinha, seq, linha))
                 #marcar quais terá que eliminar
                 for indexColuna in posicoesSequencia:
                     eliminar.append((indexLinha, indexColuna))
@@ -90,7 +147,8 @@ def main():
             if tamanhoSequencia >= 3:
                 encontrouAlgumaSequencia = True
                 pontuacao = pontuacao + calculaPontuacao(tamanhoSequencia)
-                sequencias.append(('coluna', coluna))
+                seq = [coluna[x] for x in posicoesSequencia]
+                sequencias.append(('coluna ' , indexColuna, seq, coluna))
                 #marcar quais terá que eliminar
                 for indexLinha in posicoesSequencia:
                     eliminar.append((indexLinha, indexColuna))
@@ -111,7 +169,11 @@ def main():
                 
             for l in range(linhas):
                 matriz[l] = [c[l] for c in cList]
-                
+        # print('MATRIZ:')
+        # for l in matriz:
+        #     print(l)
+        # from pprint import pprint
+        # pprint(matriz)        
             # for c in cList 
                 #passa pontos pro começa
     for s in sequencias:
@@ -123,9 +185,14 @@ def main():
     # -> depois de encontrar todas as sequencias, remove as posicoes da matriz (seta para '')
     # -> se encontrou uma sequencia, repete o processo ate nao encontrar mais
     
-while True:
-    try:
-        pontuacao = main()
-        print(pontuacao)
-    except EOFError:
-        pass
+try:
+    # while True:
+    #     pontuacao = main()
+    #     print(pontuacao)
+    # lista = ['.','.','.', '.',1,1,1, '.','.', '.', 2, 2, 2, 2]
+    lista = ['2', '3', '4', '1', '.', '.', '.', '.', '4', '5', '2', '3', '1', '1', '5', '4', '1', '2', '3', '3', '1', '5', '2', '2', '4', '3', '2', '3', '1', '2', '1', '1', '3', '1', '2', '3', '5', '2', '2', '5', '5', '2', '2', '3', '3', '1', '4', '5', '3', '3', '1', '1', '2', '4', '2', '1', '3', '5', '4', '5', '2', '1']
+    res = encontraSequenciaEmLista(lista)
+    print(res)
+    print([lista[x] for x in res])
+except EOFError:
+    pass
