@@ -60,7 +60,7 @@ def organizar(lista:list[str]) -> list[str]:
                 if pegarnumerico(item) > pegarnumerico(outro):
                     contador +=1
             copia.insert(contador,item)
-           
+
             remover(copia,contador)
         return copia
     else:
@@ -82,14 +82,14 @@ def procurar(dicionario:dict,valorkey):
 def pegarnumerico(frase:str):
     padrao = compile(r'[0-9]+')
     return int(padrao.search(frase).group())
-    
+
 def remover(lista:list,index,argumento='-'):
     for i in range(index,len(lista)):
         if lista[i] == argumento:
             lista.pop(i)
             return lista
 
-            
+
 
 inputs = organizar(inputs)
 outputs = organizar(outputs)
@@ -110,7 +110,7 @@ def rodar1():
     import_module(importar)
 def teste(orig,atual):
     sys.stdout = orig
-    print('sopa haha') 
+    print('sopa haha')
     sys.stdout = atual
 # def errors_time():
 #     global sinal
@@ -121,7 +121,7 @@ CONTADOR = 0
 
 def main():
     for index in range(len(inputs)):
-    
+
         originalsysin = sys.stdin
         originalsysout = sys.stdout
         capturaoutput = StringIO('')
@@ -132,21 +132,21 @@ def main():
         sys.stdin= originalsysin
         sys.stdout = originalsysout
         try:
-            with open(f'{diretorio}\\in\\{inputs[index]}','r',encoding='UTF-8') as inp: # in     
+            with open(f'{diretorio}\\in\\{inputs[index]}','r',encoding='UTF-8') as inp: # in
                 with open(f'{diretorio}\\out\\{outputs[index]}','r',encoding='UTF-8') as out:  #out
                     for linha in out.readlines(): # out
                         saida.append(retirar(linha)) # out
                     sys.stdin = inp # in
                     sys.stdout = capturaoutput
                     # n1 = threading.Timer(5,errors_time)#teste(originalsysout,sys.stdout)
-                    
+
                     # n1.start()
                     # n2 = threading.Thread(target=rodar1(),daemon=False)
                     # n2.run()
                     # n1.cancel()
 
                     # global sinal
-                    # sinal = 1   
+                    # sinal = 1
                     import_module(importar)
                      # in
                     entrada.append(capturaoutput.getvalue()) # in
@@ -154,7 +154,7 @@ def main():
                     print(entrada)
         except EOFError:
             pass
-        finally:           
+        finally:
             capturaoutput.close()
             sys.stdout = originalsysout
             sys.stdin = originalsysin
@@ -164,20 +164,20 @@ def main():
 
 
         if nentrada != saida:
-            # print('WRONG ANSWER')
-            # quit() 
-            for i, _ in enumerate(nentrada):
-                if(nentrada[i] != saida[i]):
-                    print('saida/esperado: ', nentrada[i], ' / ', saida[i])     
-                    
-                        
+            print('WRONG ANSWER')
+            quit()
+            # for i, _ in enumerate(nentrada):
+            #     if(nentrada[i] != saida[i]):
+            #         print('saida/esperado: ', nentrada[i], ' / ', saida[i])
+
+
             # print('entrance',nentrada,'\nexit',saida)
 
             try:
-                rmtree('programa\\__pycache__')   
+                rmtree('programa\\__pycache__')
             except:
-                pass  
-            
+                pass
+
         else:
             global CONTADOR
             CONTADOR +=1
@@ -188,7 +188,7 @@ def main():
 
 
     try:
-        rmtree('programa\\__pycache__') 
+        rmtree('programa\\__pycache__')
     except:
         pass
 main()
