@@ -28,6 +28,8 @@ for arquivo in arquivos:
 
 importar = f'programa.{arquivos}'
 exercicios = listdir('exercise')
+diretorio = ''
+
 for pasta in exercicios:
     try:
         if pasta.split('_')[1] == arquivos:
@@ -39,7 +41,9 @@ for pasta in exercicios:
             break
 ##att proximo vez ---> usar como iterador, len(os.listdir()) e puxar onde o index - vai ser inLogistica1.txt etc...
 
-
+if diretorio == '':
+    print('Diretório não encontrado, verifique o nome do exercício ou se ele existe.')
+    quit()
 
 inputs = [i for i in listdir(diretorio+"\\in")]
 outputs =  [i for i in listdir(diretorio+"\\out")]
