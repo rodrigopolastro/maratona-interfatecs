@@ -6,6 +6,7 @@ def first_n_primes(numberOfPrimes):
         limit = 15 
     else:
         limit = int(numberOfPrimes * (math.log(numberOfPrimes) + math.log(math.log(numberOfPrimes)))) + 10
+        # limit = n #  <- pega até o número que você especificar
 
     sieve = [True] * (limit + 1)
     sieve[0] = sieve[1] = False
