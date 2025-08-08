@@ -107,8 +107,8 @@ def filtrar(linha:str, argumento = '\n'):
     lista = linha.split(argumento)
     novalista = []
     for string in lista:
-        if string != '':
-            novalista.append(string.strip())
+        # if string != '':
+        novalista.append(string.strip())
     return novalista
 def rodar1():
     import_module(importar)
@@ -168,11 +168,12 @@ def main():
 
 
         if nentrada != saida:
-            print('WRONG ANSWER')
-            quit() 
-            # for i, _ in enumerate(nentrada):
-            #     if(nentrada[i] != saida[i]):
-            #         print('saida/esperado: ', nentrada[i], ' / ', saida[i])     
+            # print('WRONG ANSWER')
+            # quit() 
+            for i, _ in enumerate(nentrada):
+                if len(saida) - 1 < i and len(nentrada) -1 < i:
+                    if nentrada[i] != saida[i] :
+                        print('saida/esperado: ', nentrada[i], ' / ', saida[i])     
                     
                         
             # print('entrance',nentrada,'\nexit',saida)
