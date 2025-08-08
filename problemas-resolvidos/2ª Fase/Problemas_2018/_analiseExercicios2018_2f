@@ -1,0 +1,76 @@
+# Análise dos Exercícios Feitos
+
+Simulado realizado em 03/08/2025
+Tempo Total: 4h
+
+## A - Interfatecs Secrets
+
+Feito por: Gabriel ALmir
+
+- Exercício tranquilo; só precisava decodificar a entrada usando posições na tabela ascii e criar funções para identificar se um número é primo, fatorial ou está na sequência fibonacci.
+- Já tínhamos algoritmos prontos para essas 3 verificações, então foi rapidão
+- Aprendizado: Os algoritmos úteis são realmente úteis 🤓
+
+## B - Fliperama
+
+Feito por: Rodrigo Polastro e Gabriel Almir
+
+- Trata-se de encontrar as somas máximas e mínimas de uma árvore binária
+- Não conhecíamos a teoria disso, porém fizemos várias hipóteses até chegar numa bacana com recursividade
+- Importante: Méritos ao Gabriel Almir por perceber a **CRUCIAL** otimização de cachear valores de somas mínimas ou máximas para o mesmo nó
+
+## C - Semáforo
+
+Feito por: Alexandre Alcindo
+
+- Envolvia analisar intervalos de tempo usando módulo
+- A sacada mais importante foi converter todos os intervalos de tempo para segundos logo no início
+
+## D - Enfeites de Natal
+
+Feito por: Alexandre Alcindo
+
+- Sorted resolve tudo. Nada mais a comentar
+
+## E - Bola de Papel
+
+Feito por: Alexandre Alcindo
+
+- Mesma ideia do exercício "Indústria" da 1ª Fase de 2021: Andar em um loop eliminando elementos e depois analisando quem sobrou
+- A ideia é navegar com um ponteiro pela lista, tomando cuidado em andar a quantidade de passos conforme o exercício especifica (nesse caso, em relação à quantidade de camadas de folha na bola) e de retornar o ponteiro ao outro lado do array quando o index estiver fora do intervalo [0, qtdElementosAtual-1]
+
+## F - Fiscal de Vestibular
+
+Feito por: Rodrigo Polastro
+
+- Rodrigo pagou os pecados por zoar o alexandre pelo "int()" que ele esqueceu em um exercício da primeira fase de 2024... Rodrigão esqueceu de converter a entrada para inteiro e recebeu um WRONG ANSWER na beiça por isso
+- Mais um exercício resolvido em pouquíssimas linhas usando o argumento "key" das funções "sort" e "sorted"
+
+## G - Palavras
+
+Feito por: Rodrigo Polastro
+
+- Estupidamente fácil. Identificar se duas strings são permutações uma da outra. Só ordenar e ver se são iguais
+- Tão tonto que já caiu como questão de aquecimento na prova da 2ª fase de 2024
+
+## H - Layout Linear
+
+Feito por: Alexandre Alcindo e Gabriel Almir
+
+- Exercício de difícil interpretação. Possui muitas informações que devem ser deduzidas a partir da entrada, como o tamanho da largura do layout
+- A cooperação entre os dois membros foi muito importante para compreender todos os detalhes
+
+## I - Procura-se
+
+Feito por: Alexandre Alcindo
+
+- Exercício tranquilex pra LENDA do alexandre.
+- Análise de dados simples; apenas se atentar em respeitar todas as regrinhas do enunciado
+
+## J - Transferência de Cães
+
+Feito por: Gabriel Almir
+
+- Almiro começou calculando a parada manualmente, porém ao analisar os casos de entrada, percebeu o padrão de binário existnete
+- A conta é literalmente equivalente à quantidade de movimentos necessária para resolver uma torre de hanoi de N elementos (2^N - 1)
+- É um lembrete para parar e considerar a possibilidade de você estar pensando demais sobre algo que pode ser deduzido pelos casos de teste de entrada
