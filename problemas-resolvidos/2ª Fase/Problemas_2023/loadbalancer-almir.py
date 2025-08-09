@@ -14,17 +14,15 @@ import heapq
 s, r, a = map(int, [input() for _ in range(3)])
 
 requests = []
-target_request_time = None
 
 for i in range(1, r + 1):
     t, d = map(int, input().split())
-    if i == a: target_request_time = t
-    heapq.heappush(requests, (t, d))
+    heapq.heappush(requests, (t, i, d))
 
 servers = {i: [] for i in range(1, s + 1)}
 
 while requests:
-    t, d = heapq.heappop(requests)
+    t, i, d = heapq.heappop(requests)
 
     for server_id in servers:
         if servers[server_id]:
@@ -32,7 +30,7 @@ while requests:
 
     min_server = least_loaded_server(servers)
 
-    if t == target_request_time:
+    if t == i:
         break
 
     servers[min_server].append(t + d - 1)
