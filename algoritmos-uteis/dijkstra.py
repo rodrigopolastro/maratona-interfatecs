@@ -1,4 +1,4 @@
-import heapq
+import heapq # é um array que faz uma espécie de autosort
 
 def dijkstra(graph, start) -> dict[str, float]:
     if start not in graph:
