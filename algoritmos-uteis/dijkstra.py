@@ -2,6 +2,14 @@ import heapq  # heapq é como uma "fila de prioridade" otimizada.
               # Sempre que tiramos um elemento, ele devolve o menor.
               # Aqui vamos usar para pegar sempre o nó com menor distância acumulada.
 
+# Explicação como se você tivesse 5 anos:
+# Imagine várias casinhas ligadas por estradinhas. Cada estradinha tem um número dizendo quanto você se cansa.
+# Você começa em uma casinha e quer saber: qual é o menor cansaço para chegar em cada outra casinha?
+# Então você sempre escolhe a próxima casinha que, até agora, parece a mais fácil de alcançar.
+# Quando chega nela, você vê se passar por ali deixa o caminho para as vizinhas menos cansativo. Se sim, atualiza.
+# Faz isso até não sobrar casinha para olhar.
+# No final, você tem o menor cansaço para ir da casinha inicial até todas as outras. Isso é o algoritmo de Dijkstra.
+
 def dijkstra(graph, start) -> dict[str, float]:
     # Se o nó inicial não existir no grafo, não há nada para calcular
     if start not in graph:
