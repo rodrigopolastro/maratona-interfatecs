@@ -73,12 +73,16 @@ for m in melhoresCadaFatec:
 
 timesRestantes = [t for t in timesRestantes if t not in classificados]
 timesRestantes.sort(key=lambda t: (-t[2], t[3]))    
+remover = []
 for i in range(qtdVagasRestantes):
     classificados.append(timesRestantes[i])
-    timesRestantes.pop(i)
+    remover.append(i)
+    
+for _ in remover[::-1]:
+    timesRestantes.pop(_)
 
-classificados.sort(key=lambda t: (-t[2], t[3])) 
-timesRestantes.sort(key=lambda t: (-t[2], t[3])) 
+# classificados.sort(key=lambda t: (-t[2], t[3])) 
+# timesRestantes.sort(key=lambda t: (-t[2], t[3])) 
 
 print('Classificados para a Final')
 for t in sorted(classificados, key=lambda c: (c[0])):
