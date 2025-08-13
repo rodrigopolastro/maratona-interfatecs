@@ -3,7 +3,7 @@ from math import inf
 #encontra maior sequencia de elementos iguais em um array
 
 def encontraMaiorSequenciaIgual(lista):
-    maiorSequencia = list()
+    indicesMaiorSequencia = list()
     tamanhoMaiorSequencia = -inf
     
     pecaAnterior = lista[0]
@@ -15,8 +15,11 @@ def encontraMaiorSequenciaIgual(lista):
             posicoesSequencia.append(j)
             if len(posicoesSequencia) > tamanhoMaiorSequencia:
                 tamanhoMaiorSequencia = len(posicoesSequencia)
-                maiorSequencia = posicoesSequencia
+                indicesMaiorSequencia = posicoesSequencia
         else:
             pecaAnterior = pecaAtual
             posicoesSequencia = [j]
-    return maiorSequencia  
+    return indicesMaiorSequencia  
+
+lista = [1,1,1,12,34,5]
+print(encontraMaiorSequenciaIgual(lista))

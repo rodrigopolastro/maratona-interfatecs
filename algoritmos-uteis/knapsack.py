@@ -13,15 +13,12 @@
 
 # #Fixado valor fixado
 # def knapsack_1_0_SEM_BACKTRACKING():
-    
 #     capacidadeBolsa = 10 
 #     peso_itens = [2,3,5,7]
 #     valores_itens = [3,5,10,13]
-    
 #     bolsa = [
 #         [0 for _ in range(capacidadeBolsa+1)] for x in range(len(peso_itens) +1)
 #     ]
-    
 #     for i in range(1,len(peso_itens)+1):        # precisamos percorrer todos os itens, começamos do 1 para ficar mais fácil o algoritmo
 #         for j in range(1,capacidadeBolsa+1):    # não tem necessidade de começar com espaço 0, não vai caber nada,
 #                                                 # a não ser que exista itens com 0 de peso mas não vai ser o caso dos problemas de knapsack
@@ -97,11 +94,9 @@
 # ===== ENTRADA =====
 n = int(input("Número de itens: "))
 capacidade = int(input("Capacidade da mochila: "))
-
 pesos = list(map(int, input("Pesos: ").split()))
 valores = list(map(int, input("Valores: ").split()))
 
-# ===== INICIALIZA DP =====
 dp = [[0 for _ in range(capacidade + 1)] for _ in range(n + 1)]
 
 # ===== PREENCHIMENTO DA TABELA DP =====
@@ -136,8 +131,6 @@ print("Valores escolhidos:", [valores[i] for i in reversed(itens_escolhidos)])
 
 
 # KNAPSACK UNBOUDED -> pega o maior valor que cabe naquela capacidade podendo pegar infinitos numeros
-
-
 def knapsack_unbounded():
     capacidadeBolsa = 20
     peso_itens = [2, 3, 5, 7]

@@ -58,7 +58,6 @@ def obtemMenorCaminho():
     while len(proximasPosicoes) > 0:
         posicaoAtual = proximasPosicoes.pop(0)
         if posicaoAtual == POSICAO_FINAL:
-            print('a')
             menorCaminho = getMenorCaminho(POSICAO_INICIAL, POSICAO_FINAL, posicoesAnteriores)
             return menorCaminho
         
@@ -71,14 +70,10 @@ def obtemMenorCaminho():
             
             posicoesAnteriores[proximaPosicao] = posicaoAtual
             proximasPosicoes.append(proximaPosicao)
+    return False
         
 def clear_terminal():
-    # Limpa a tela no Windows ou Linux/Mac
     os.system('cls' if os.name == 'nt' else 'clear')
-
-# def print_matrix(matrix):
-#     for row in matrix:
-#         print(' '.join(str(cell) for cell in row))
 
 def print_matrix(matrix):
     print("\033c", end='')
@@ -88,13 +83,13 @@ def print_matrix(matrix):
     print(f'{render}\r', end='')
         
 menorCaminho = obtemMenorCaminho()
-cenario = deepcopy(CENARIO)
-for passo in menorCaminho:
-    clear_terminal()
-    cenario[passo[0]][passo[1]] = 'O'
-    print_matrix(cenario)
-    time.sleep(0.25)
-    # pprint(cenario)
-    # print('-------------------')
-# print(menorCaminho)
+if menorCaminho:
+    cenario = deepcopy(CENARIO)
+    for passo in menorCaminho:
+        clear_terminal()
+        cenario[passo[0]][passo[1]] = 'O'
+        print_matrix(cenario)
+        time.sleep(0.25)
+else:
+    print('Não encontrei... 😔')
 

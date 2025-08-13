@@ -3,9 +3,6 @@
 #           objetivo desviando de obstáculos no cenário 
 ################################################################################
 
-from pprint import pprint
-from copy import deepcopy
-
 def posicoesVizinhas(posicao, qtdLinhasCenario, qtdColunasCenario):
     i, j = posicao[0], posicao[1]
     posicoesVizinhasPossiveis = [
@@ -17,12 +14,9 @@ def posicoesVizinhas(posicao, qtdLinhasCenario, qtdColunasCenario):
     posicoesVizinhasValidas = []
     for posicao in posicoesVizinhasPossiveis:
         if 0 <= posicao[0] <= qtdLinhasCenario-1 and 0 <= posicao[1] <= qtdColunasCenario-1:
-            posicoesVizinhasValidas.append(posicao)
-        
+            posicoesVizinhasValidas.append(posicao) 
     return posicoesVizinhasValidas
 
-
-POSICAO_INICIAL = 2
     
 def getMenorCaminho(posicaoInicial, posicaoFinal, posicoesAnteriores):
     caminhoPercorrido = []
@@ -45,18 +39,15 @@ POSICAO_INICIAL = (0, 0)
 POSICAO_FINAL = (3, 6)
 BLOQUEIO = '#'
 
-# posicaoSilas = []
-# cenario = []
-proximasPosicoes = list()
-posicoesAnteriores = dict() 
-proximasPosicoes.append((0,0)) 
-posicoesAnteriores[(0,0)] = None
+proximasPosicoes = list()        # => fila de próximas posições (tuplas)
+posicoesAnteriores = dict()      # => (iAtual, jAtual) -> (iAnterior, jAnterior)
+proximasPosicoes.append((0,0))   # => inicia fila com posição inicial
+posicoesAnteriores[(0,0)] = None # => posicao inicial não possui posição anterior
     
-def obtemMenorCaminho():
+def buscaEmLargura():
     while len(proximasPosicoes) > 0:
         posicaoAtual = proximasPosicoes.pop(0)
         if posicaoAtual == POSICAO_FINAL:
-            print('a')
             menorCaminho = getMenorCaminho(POSICAO_INICIAL, POSICAO_FINAL, posicoesAnteriores)
             return menorCaminho
         
@@ -70,12 +61,7 @@ def obtemMenorCaminho():
             posicoesAnteriores[proximaPosicao] = posicaoAtual
             proximasPosicoes.append(proximaPosicao)
         
-        
-menorCaminho = obtemMenorCaminho()
-cenario = deepcopy(CENARIO)
-for passo in menorCaminho:
-    cenario[passo[0]][passo[1]] = 'O'
-    pprint(cenario)
-    print('-------------------')
-# print(menorCaminho)
+menorCaminho = buscaEmLargura()
+print(menorCaminho)
+# => [(0, 1), (1, 1), (2, 1), (3, 1), (3, 2), (3, 3), (3, 4), (2, 4), (2, 5), (2, 6), (3, 6)]
 

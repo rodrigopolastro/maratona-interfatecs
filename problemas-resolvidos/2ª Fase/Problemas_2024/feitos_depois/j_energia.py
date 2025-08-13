@@ -39,22 +39,20 @@ for _ in range(qtdLigacoes):
     estacao1, estacao2, distancia = [int(_) for _ in input().split()]
     ligacoes.append((estacao1-1, estacao2-1, distancia))
     
-ligacoes.sort(key=lambda l: l[2]) #ordena pela distancia
+ligacoes.sort(key=lambda l: l[2]) #ordena arestas pelo seu tamanho de forma crescente
 
 tamanhoArvore = 0
 qtdElementosArvore = 0
-
 for ligacao in ligacoes:
     a, b, distancia = ligacao
-    if find(a) != find(b):
+    if find(a) != find(b): #verifica se pontos já não estão conectados
         union(a, b)
-        qtdElementosArvore = qtdElementosArvore+1
-        tamanhoArvore = tamanhoArvore + distancia
+        qtdElementosArvore += 1
+        tamanhoArvore += distancia
         if qtdElementosArvore == qtdEstacoes-1:
             break
 print(tamanhoArvore)
-for i in range(qtdEstacoes):
-    print(i+1,' filho de ', pai[i]+1)
+
 
 
 
