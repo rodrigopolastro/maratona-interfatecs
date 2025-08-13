@@ -90,7 +90,6 @@
 """ CHAT GEPETO , CÓDIGO COM BACKTRACKING """
 
 # KNAPSACK I/O -> pega maior valor otimizando pelo peso, apenas 1 único item de cada
-
 # ===== ENTRADA =====
 n = int(input("Número de itens: "))
 capacidade = int(input("Capacidade da mochila: "))
@@ -190,7 +189,6 @@ def bounded_knapsack(pesos, valores, quantidades, capacidade):
                     if val > dp[i][w]:
                         dp[i][w] = val
                         escolha[i][w] = k  # quantidade escolhida do item i
-
     # Backtracking para recuperar os itens usados
     w = capacidade
     itens_usados = [0] * n
@@ -198,7 +196,6 @@ def bounded_knapsack(pesos, valores, quantidades, capacidade):
         k = escolha[i][w]
         itens_usados[i-1] = k
         w -= k * pesos[i-1]
-
     print("Valor máximo:", dp[n][capacidade])
     print("Itens usados (quantidades):", itens_usados)
 
@@ -215,8 +212,8 @@ bounded_knapsack(pesos, valores, quantidades, capacidade)
 
 
 
-# subset -> caso especial do knapsack, onde só importa o peso,  "É possível encher a mochila exatamente com peso W?"
-
+# subset -> caso especial do knapsack, onde só importa o peso,  
+#        -> "É possível encher a mochila exatamente com peso W?"
 def subset_sum_backtrack(nums, target, index=0, current_sum=0, subset=[]):
     # Se soma atual iguala o target, achamos uma solução
     if current_sum == target:

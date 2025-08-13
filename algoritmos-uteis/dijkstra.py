@@ -52,3 +52,5 @@ print(distancias) # => {'A': 0, 'B': 1, 'C': 3, 'D': 4}
 print(anteriores) # => {'A': None, 'B': 'A', 'C': 'B', 'D': 'C'}
 
 
+
+

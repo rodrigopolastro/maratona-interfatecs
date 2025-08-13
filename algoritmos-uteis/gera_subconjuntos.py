@@ -2,7 +2,7 @@
 # ExemploS:
 # - combinations('ABC', 1) -> [A, B, C]
 # - combinations('WXYZ', 2) -> [WX, WY, WZ ... YZ]
-def combinations(entries: List[str], length: int) -> List[str]:
+def combinations(entries, length):
     if length == 0:
         return ['']
 
@@ -19,3 +19,4 @@ def combinations(entries: List[str], length: int) -> List[str]:
             result.append(current + comb)
 
     return result
+
