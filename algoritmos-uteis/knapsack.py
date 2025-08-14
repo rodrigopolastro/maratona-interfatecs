@@ -13,15 +13,12 @@
 
 # #Fixado valor fixado
 # def knapsack_1_0_SEM_BACKTRACKING():
-    
 #     capacidadeBolsa = 10 
 #     peso_itens = [2,3,5,7]
 #     valores_itens = [3,5,10,13]
-    
 #     bolsa = [
 #         [0 for _ in range(capacidadeBolsa+1)] for x in range(len(peso_itens) +1)
 #     ]
-    
 #     for i in range(1,len(peso_itens)+1):        # precisamos percorrer todos os itens, começamos do 1 para ficar mais fácil o algoritmo
 #         for j in range(1,capacidadeBolsa+1):    # não tem necessidade de começar com espaço 0, não vai caber nada,
 #                                                 # a não ser que exista itens com 0 de peso mas não vai ser o caso dos problemas de knapsack
@@ -93,15 +90,12 @@
 """ CHAT GEPETO , CÓDIGO COM BACKTRACKING """
 
 # KNAPSACK I/O -> pega maior valor otimizando pelo peso, apenas 1 único item de cada
-
 # ===== ENTRADA =====
 n = int(input("Número de itens: "))
 capacidade = int(input("Capacidade da mochila: "))
-
 pesos = list(map(int, input("Pesos: ").split()))
 valores = list(map(int, input("Valores: ").split()))
 
-# ===== INICIALIZA DP =====
 dp = [[0 for _ in range(capacidade + 1)] for _ in range(n + 1)]
 
 # ===== PREENCHIMENTO DA TABELA DP =====
@@ -136,8 +130,6 @@ print("Valores escolhidos:", [valores[i] for i in reversed(itens_escolhidos)])
 
 
 # KNAPSACK UNBOUDED -> pega o maior valor que cabe naquela capacidade podendo pegar infinitos numeros
-
-
 def knapsack_unbounded():
     capacidadeBolsa = 20
     peso_itens = [2, 3, 5, 7]
@@ -197,7 +189,6 @@ def bounded_knapsack(pesos, valores, quantidades, capacidade):
                     if val > dp[i][w]:
                         dp[i][w] = val
                         escolha[i][w] = k  # quantidade escolhida do item i
-
     # Backtracking para recuperar os itens usados
     w = capacidade
     itens_usados = [0] * n
@@ -205,7 +196,6 @@ def bounded_knapsack(pesos, valores, quantidades, capacidade):
         k = escolha[i][w]
         itens_usados[i-1] = k
         w -= k * pesos[i-1]
-
     print("Valor máximo:", dp[n][capacidade])
     print("Itens usados (quantidades):", itens_usados)
 
@@ -222,8 +212,8 @@ bounded_knapsack(pesos, valores, quantidades, capacidade)
 
 
 
-# subset -> caso especial do knapsack, onde só importa o peso,  "É possível encher a mochila exatamente com peso W?"
-
+# subset -> caso especial do knapsack, onde só importa o peso,  
+#        -> "É possível encher a mochila exatamente com peso W?"
 def subset_sum_backtrack(nums, target, index=0, current_sum=0, subset=[]):
     # Se soma atual iguala o target, achamos uma solução
     if current_sum == target:

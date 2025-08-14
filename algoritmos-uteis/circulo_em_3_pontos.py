@@ -1,1 +1,0 @@
-# TODO: algoritmo para gerar circulo a partir de 3 pontos definidos

@@ -8,3 +8,7 @@ def isFactorial(n):
         f *= i
         i += 1
     return f == n
+
+
+
+
