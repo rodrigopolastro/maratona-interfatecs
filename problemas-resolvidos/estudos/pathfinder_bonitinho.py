@@ -35,16 +35,46 @@ def getMenorCaminho(posicaoInicial, posicaoFinal, posicoesAnteriores):
         
     return caminhoPercorrido[::-1]
     
+# CENARIO = [
+#     ['I', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', 'F'],
+# ]
+# CENARIO = [
+#     ['I', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '#'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', 'F'],
+# ]
+# CENARIO = [
+#     ['I', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '#'],
+#     ['.', '.', '.', '.', '.', '#', '.'],
+#     ['.', '.', '.', '.', '#', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', '.'],
+#     ['.', '.', '.', '.', '.', '.', 'F'],
+# ]
 CENARIO = [
-    ['I', '.', '.', '.', '.', '.', '.'],
-    ['.', '.', '.', '.', '#', '#', '#'],
-    ['.', '.', '#', '#', '.', '.', ''],
+    ['I', '#', '.', '.', '.', '.', '.'],
+    ['.', '#', '.', '.', '.', '#', '#'],
+    ['.', '.', '.', '#', '#', '#', '.'],
+    ['.', '.', '.', '#', '.', '.', '.'],
+    ['.', '.', '.', '#', '.', '#', '.'],
+    ['.', '.', '#', '#', '.', '#', '.'],
     ['.', '.', '.', '.', '.', '#', 'F'],
 ]
-QTD_LINHAS_CENARIO = 4
+QTD_LINHAS_CENARIO = 7
 QTD_COLUNAS_CENARIO = 7
 POSICAO_INICIAL = (0, 0)
-POSICAO_FINAL = (3, 6)
+POSICAO_FINAL = (6, 6)
 BLOQUEIO = '#'
 
 # posicaoSilas = []
@@ -84,12 +114,14 @@ def print_matrix(matrix):
         
 menorCaminho = obtemMenorCaminho()
 if menorCaminho:
-    cenario = deepcopy(CENARIO)
-    for passo in menorCaminho:
-        clear_terminal()
-        cenario[passo[0]][passo[1]] = 'O'
-        print_matrix(cenario)
-        time.sleep(0.25)
+    # cenario = deepcopy(CENARIO)
+    # for passo in menorCaminho:
+    #     clear_terminal()
+    #     cenario[passo[0]][passo[1]] = 'O'
+    #     print_matrix(cenario)
+    #     time.sleep(0.25)
+    # print()
+    print('ACHEI!!!')
 else:
     print('Não encontrei... 😔')
 
