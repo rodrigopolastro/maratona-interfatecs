@@ -2,3 +2,4 @@ boca-trifasico/programa/
 !boca-trifasico/.gitkeep
 *.exe
 .vs/
+__pycache__
