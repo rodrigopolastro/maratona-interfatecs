@@ -1,27 +1,29 @@
-tabelaHash = {
-    'A':'2','B':'2','C':'2',
-    'D':'3','E':'3','F':'3',
-    'G':'4','H':'4','I':'4',
-    'J':'5','K':'5','L':'5',
-    'M':'6','N':'6','O':'6',
-    'P':'7','Q':'7','R':'7','S':'7',
-    'T':'8','U':'8','V':'8',
-    'X':'9','Y':'9','Z':'9',
-    '.':'0',
-}
-
-def numero_tecla(tecla) -> SAI COM ESSAES MERDA PRA LA:
-    if tecla in 'ABC':
+def numero_tecla(tecla : str):
+    if tecla.upper() in 'ABC':
         return '2'
     
-    if tecla in 'BCD':
+    if tecla.upper() in 'DEF':
         return '3'
     
-    if tecla in 'EFG':
+    if tecla.upper() in 'GHI':
         return '4'
     
-    if tecla in 'HIJ':
+    if tecla.upper() in 'JKL':
         return '5'
+
+    if tecla.upper() in 'MNO':
+        return '6'
+    
+    if tecla.upper() in 'PQRS':
+        return '7'
+    
+    if tecla.upper() in 'TUV':
+        return '8'
+    
+    if tecla.upper() in 'XYZ':
+        return '9'
+    
+    return '0'
 
 palavras = int(input())
 respostas = [] # apenas para o output ficar agrupado e mais facil de conferir
@@ -29,7 +31,7 @@ for palavra in range(palavras):
     palavraEscrever = input()
     palavraNumero = ''
     for letra in palavraEscrever:
-        palavraNumero+=tabelaHash[letra]
+        palavraNumero += numero_tecla(letra)
     respostas.append(palavraNumero)
 for resposta in respostas:
     print(resposta)

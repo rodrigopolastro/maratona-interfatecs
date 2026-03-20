@@ -6,7 +6,10 @@ PAPEL   = 'O'
 TESOURA = 'V'
 
 while True:
-    beatriz, artur = input().split()
+    entradaDados = input().split()
+    beatriz = entradaDados[0] 
+    artur = entradaDados[1]
+    
     if beatriz == artur == '-':
         break
     if beatriz == PEDRA:
