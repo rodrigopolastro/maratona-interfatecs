@@ -4,13 +4,12 @@ pontosArtur = 0
 PEDRA   = '*'
 PAPEL   = 'O'
 TESOURA = 'V'
-
-while True:
-    entradaDados = input().split() # mostrar para os alunos no texto que fala que o primeiro input é sempre da beatriz
+while True: # perguntar porque implementar while -- SE NAO RESPONDEREM, FAZER FUNÇÃO PRINCIPAL DE PONTUAÇÃO E DEPOIS VOLTA PARA ESSA PARTE
+    entradaDados = input().split(' ') # mostrar para os alunos no texto que fala que o primeiro input é sempre da beatriz
     beatriz = entradaDados[0] 
     artur = entradaDados[1]
     
-    if beatriz == artur == '-': 
+    if beatriz == '-' and artur == '-': 
         break
     if beatriz == PEDRA:
         if artur == TESOURA:

@@ -32,6 +32,7 @@ respostas = []  # apenas para o output ficar agrupado e mais facil de conferir
 for palavra in range(palavras):
     palavraEscrever = input()
     combinacaoNumericaFormada = ''
+    
     for letra in palavraEscrever:
         combinacaoNumericaFormada += numero_tecla(letra)
     respostas.append(combinacaoNumericaFormada)
