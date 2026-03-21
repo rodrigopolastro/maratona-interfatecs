@@ -1,5 +1,5 @@
-# 1:22 - 1:24
-# xande
+# Exercício M da 1ª fase de 2013
+
 n = int(input()) # qtd d casos de teste
 
 def nerdOuNao(string):

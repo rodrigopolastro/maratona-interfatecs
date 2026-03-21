@@ -1,48 +1,47 @@
 ################################################################################
-# Objetivo: Determinar a posição final de um robô se movimentando em uma matriz 
+# Problema: Problema E da 1ª fase de 2023
+# Objetivo: Determinar a posição final de um robô se movimentando em uma matriz
 #           a partir da sua sequência de movimentos
-# Autor: Rodrigo
-# Data: ??/??/2024
-# Duração: ?
 ################################################################################
 
-def main():
-  batidas = 0
+batidas = 0
 
-  string = input().split(" ")
-  l = int(string[0])
-  c = int(string[1]) 
-  b = int(string[2]) 
+entrada1 = input().split(' ')
+quantidade_linhas = int(entrada1[0])
+quantidade_colunas = int(entrada1[1])
+bateria_restante = int(entrada1[2])
 
-  string = input().split(" ")
-  linha = int(string[0])
-  coluna = int(string[1]) 
+entrada2 = input().split(' ')
+linha_atual = int(entrada2[0])
+coluna_atual = int(entrada2[1])
 
-  comandos = input() 
+comandos = input()
 
-  for i in range(0, b):
-    comando = comandos[i]
-    if comando == "C": 
-      if linha != 1: 
-        linha -= 1
-      else:
-        batidas += 1
+for comando in comandos:
+    if bateria_restante == 0:
+        break
+
+    if comando == "C":
+        if linha_atual != 1:
+            linha_atual -= 1
+        else:
+            batidas += 1
     elif comando == "B":
-      if linha != l:
-        linha += 1
-      else:
-        batidas+=1   
+        if linha_atual != quantidade_linhas:
+            linha_atual += 1
+        else:
+            batidas += 1
     elif comando == "D":
-      if coluna != c:
-        coluna += 1
-      else:
-        batidas+=1     
+        if coluna_atual != quantidade_colunas:
+            coluna_atual += 1
+        else:
+            batidas += 1
     elif comando == "E":
-      if coluna != 1:
-        coluna -= 1
-      else:
-        batidas+=1   
+        if coluna_atual != 1:
+            coluna_atual -= 1
+        else:
+            batidas += 1
 
-  print(f"{linha} {coluna} {batidas}")
+    bateria_restante -= 1
 
-main()
+print(f"{linha_atual} {coluna_atual} {batidas}")

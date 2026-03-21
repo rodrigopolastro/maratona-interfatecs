@@ -1,3 +1,5 @@
+# Exercício B da 2ª fase de 2025
+
 pontosBeatriz = 0
 pontosArtur = 0
 
